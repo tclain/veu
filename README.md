@@ -1,4 +1,4 @@
-# react-modern-library-boilerplate
+# Veu
 
 > A Simple Vue-like state manager for react
 
