@@ -7,7 +7,6 @@ const Counter = Veu({
   },
   methods : {
     increment(){
-      console.log('incremented !')
       this.count = this.count + 1
     }
   },

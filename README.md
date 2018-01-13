@@ -1,8 +1,13 @@
 # react-modern-library-boilerplate
 
-> TODO: Component Description
+> A Simple Vue-like state manager for react
 
-[![NPM](https://img.shields.io/npm/v/react-modern-library-boilerplate.svg)](https://www.npmjs.com/package/react-modern-library-boilerplate) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[Alpha Release]
+
+Why ? Why not ! I love react and I love vue simplicity that can help newcomers to build elegant applications. But the truth is, React is so much more popular and there are awesome react libraries out there (airbnb dates, shopify drag and drop ...). 
+
+So what if we could reuse all theses libs but with the simplicity and elegance inspired from vue to manage our state ? Entre Veu (pronounce Vee-u).
+
 
 ## Install
 
@@ -14,26 +19,40 @@ npm install --save veu
 
 ```jsx
 import React, { Component } from 'react'
-
 import {Veu} from 'veu';
 
-
 const Counter = Veu({
-
-})(({data, methods, computed, ...props) => (
-  <div>
-    {data.counter}
-    <button>Increment</button>
-  </div>   
+  data : {
+    count: 1
+  },
+  methods : {
+    increment(){
+      this.count = this.count + 1
+    }
+  },
+  computed: {
+    readableCount(){
+      return this.count + " times";
+    }
+  }
+})( ({increment, count, readableCount, ...props}) => (
+  <div className="example-counter">
+    {count}, computed: {readableCount}
+    <button onClick={increment}>Increment counter</button>
+  </div>
 ))
 
-class Example extends Component {
+
+export default class App extends Component {
   render () {
     return (
-      <Counter />
+      <div>
+        <Counter />
+      </div>
     )
   }
 }
+
 ```
 
 ## License
